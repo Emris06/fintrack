@@ -168,8 +168,8 @@ CREATE TABLE audit_logs (
     entity_type     VARCHAR(50)     NOT NULL,
     entity_id       BIGINT          NOT NULL,
     action          VARCHAR(20)     NOT NULL, -- CREATE, UPDATE, DELETE, TRANSFER
-    old_value       CLOB,
-    new_value       CLOB,
+    old_value       TEXT,
+    new_value       TEXT,
     ip_address      VARCHAR(45),
     created_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -188,7 +188,7 @@ CREATE TABLE notifications (
     title           VARCHAR(200)    NOT NULL,
     message         VARCHAR(1000)   NOT NULL,
     is_read         BOOLEAN         NOT NULL DEFAULT FALSE,
-    metadata        CLOB,
+    metadata        TEXT,
     created_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_notifications_user FOREIGN KEY (user_id) REFERENCES users(id)
