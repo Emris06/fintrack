@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.gradle/
+build/
+*.class
+.idea/
+*.iml
+.vscode/
+.env
+*.log
+frontend/node_modules/
+frontend/dist/
+backend/build/
+backend/.gradle/

@@ -1,0 +1,9 @@
+**/node_modules
+**/dist
+**/.gradle
+**/build
+**/.git
+**/.env
+**/*.md
+**/PRESENTATION.md
+**/ARCHITECTURE.md
