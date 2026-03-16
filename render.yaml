@@ -7,11 +7,10 @@ databases:
 services:
   - type: web
     name: fintrack-api
-    runtime: java
+    runtime: docker
     plan: free
     rootDir: backend
-    buildCommand: ./gradlew bootJar
-    startCommand: java -jar build/libs/*.jar
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
