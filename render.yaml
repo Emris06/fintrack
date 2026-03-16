@@ -1,0 +1,43 @@
+databases:
+  - name: fintrack-db
+    plan: free
+    databaseName: fintrack
+    user: fintrack
+
+services:
+  - type: web
+    name: fintrack-api
+    runtime: java
+    plan: free
+    rootDir: backend
+    buildCommand: ./gradlew bootJar
+    startCommand: java -jar build/libs/*.jar
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_HOST
+        fromDatabase:
+          name: fintrack-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: fintrack-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: fintrack-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: fintrack-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: fintrack-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://fintrack.vercel.app
+      - key: PORT
+        value: 8080
