@@ -138,7 +138,7 @@ export function useCreateBill(houseId: number, serviceId: number) {
 
 // ─── Pay Bill ────────────────────────────────────────────
 
-export function usePayBill(houseId: number) {
+export function usePayBill(_houseId: number) {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: ({ billId, data }: { billId: number; data: PayBillRequest }) => housesApi.payBill(billId, data),

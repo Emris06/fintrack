@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { CarResponse, CarRequest, FineResponse } from '@/types';
+import type { CarResponse, CarRequest } from '@/types';
 import {
   useCars,
   useCreateCar,
